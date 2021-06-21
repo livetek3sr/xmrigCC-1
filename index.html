@@ -169,6 +169,7 @@
                     {data: "client_status.current_pool"},
                     {data: "client_status.current_pool_user", visible: false},
                     {data: "client_status.current_pool_pass", visible: false},
+                    {data: "client_status.current_pool_rig_id", visible: false},
                     {data: "client_status.current_status", render: clientStatus},
                     {data: "client_status.current_algo_name", render: algoAndPowVariantName},
 
@@ -405,7 +406,7 @@
                     var sumSharesGood = 0;
                     var sumSharedTotal = 0;
 
-                    var colOffset = 29;
+                    var colOffset = 30;
 
                     sumHashrateShort = api
                         .column(colOffset, {page: 'current'})
@@ -1248,6 +1249,7 @@
             <th>Pool</th>
             <th>User</th>
             <th>Password</th>
+            <th>RigId</th>
             <th>Status</th>
             <th>Algo / PoW</th>
 
@@ -1293,6 +1295,7 @@
         <tr>
             <th class="center" width="2%"><i class="fa fa-square-o" id="selectAllBottom"></i></th>
             <th class="left">Total:</th>
+            <th></th>
             <th></th>
             <th></th>
             <th></th>
