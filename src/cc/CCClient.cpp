@@ -420,10 +420,15 @@ std::shared_ptr<httplib::Response> xmrig::CCClient::performRequest(const std::st
   }
 #   endif
 
+  std::stringstream hostHeader;
+  hostHeader << m_base->config()->ccClient().host()
+             << ":"
+             << m_base->config()->ccClient().port();
+
   httplib::Request req;
   req.method = operation;
   req.path = requestUrl;
-  req.set_header("Host", "");
+  req.set_header("Host", hostHeader.str());
   req.set_header("Accept", "*//*");
   req.set_header("User-Agent", Platform::userAgent());
   req.set_header("Accept", "application/json");
